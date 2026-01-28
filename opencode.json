@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "agent": {
+    "tools": {
+      "read": true,
+      "list": true,
+      "grep": true,
+      "glob": true,
+      "bash": true,
+
+      "edit": true,
+
+      "write": false,
+      "patch": false,
+
+      "lsp": false,
+      "path": false,
+      "skill": false,
+      "webfetch": false
+    },
+
+    "plan": {
+      "prompt": "Analyze code only. You may internally reason in terms of edits, but do not call tools that are not enabled, including commentary, write, or print_tree. Do not modify files unless explicitly instructed. Use only enabled tools and exact schemas."
+    },
+    "build": {
+      "prompt": "Reason about code safely. Do not call disabled tools like commentary, write, or patch. Prefer explanation over action. Only apply edits if explicitly requested. Use only enabled tools and exact schemas."
+    }
+  }
+}
