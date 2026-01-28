@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { postgresAdapter } from '@payloadcms/db-postgres'
+import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -38,7 +38,11 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-    db: postgresAdapter({ url: process.env.DATABASE_URL }),
+    db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URL,
+    },
+  }),
    endpoints: [contactEndpoint],
   plugins: [
     r2Storage({
