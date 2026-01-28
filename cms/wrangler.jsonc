@@ -2,7 +2,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
   "name": "mojave-valley-financial-services-cms",
-  "compatibility_date": "2025-08-15",
+  "package_manager": "pnpm",
+
   "route": "cms.mojavevalleyfinancial.com/*",
 
   "compatibility_flags": [
