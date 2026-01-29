@@ -14,7 +14,7 @@
     "dev": "turbo dev",
     "dev:client": "turbo dev --filter=client",
     "dev:server": "turbo dev --filter=server",
-    "build": "bun run --cwd ./shared build && bun run --cwd ./server build && mv ./server/dist/index.js ./server/dist/mojave-valley-financial-server.js",
+    "build": "turbo run build",
     "build:shared": "npm --workspace shared run build",
     "build:server": "npm --workspace server run build",
     "lint": "turbo lint",
