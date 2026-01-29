@@ -9,8 +9,7 @@
       "glob": true,
       "bash": true,
 
-      "edit": true,
-
+      "edit": false,
       "write": false,
       "patch": false,
 
@@ -21,10 +20,11 @@
     },
 
     "plan": {
-      "prompt": "Analyze code only. You may internally reason in terms of edits, but do not call tools that are not enabled, including commentary, write, or print_tree. Do not modify files unless explicitly instructed. Use only enabled tools and exact schemas."
+      "prompt": "Analyze code and propose changes in plain text. Do not attempt edits or tool calls outside the enabled list."
     },
+
     "build": {
-      "prompt": "Reason about code safely. Do not call disabled tools like commentary, write, or patch. Prefer explanation over action. Only apply edits if explicitly requested. Use only enabled tools and exact schemas."
+      "prompt": "Explain how to implement the changes manually. Do not attempt to modify files or call edit or git tools."
     }
   }
 }
