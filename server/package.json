@@ -4,8 +4,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "dev": "bun --watch run src/index.ts & tsc --watch"
+    "prebuild": "bun run --cwd ../shared build",
+    "build": "bun exec tsc",
+    "dev": "bun --watch run src/index.ts & bun exec tsc --watch"
   },
   "dependencies": {
     "hono": "^4.10.8",
