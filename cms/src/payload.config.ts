@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { postgresAdapter } from '@payloadcms/db-postgres';
+import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -10,9 +10,6 @@ import { r2Storage } from '@payloadcms/storage-r2'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import { ContactMessages } from './collections/ContactMessages'
-import { contactEndpoint } from './payload/endpoints/contactEndpoint'
-
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,17 +18,10 @@ const realpath = (value: string) => (fs.existsSync(value) ? fs.realpathSync(valu
 const isCLI = process.argv.some((value) => realpath(value).endsWith(path.join('payload', 'bin.js')))
 const isProduction = process.env.NODE_ENV === 'production'
 
-let cloudflare: CloudflareContext
-try {
-  cloudflare =
-    isCLI || !isProduction
-      ? await getCloudflareContextFromWrangler()
-      : await getCloudflareContext({ async: true })
-} catch (e) {
-  console.error('⚠️ Cloudflare context init failed:', e)
-  // Provide a minimal stub so the rest of the config can load
-  cloudflare = { env: {} } as any
-}
+const cloudflare =
+  isCLI || !isProduction
+    ? await getCloudflareContextFromWrangler()
+    : await getCloudflareContext({ async: true })
 
 export default buildConfig({
   admin: {
@@ -40,18 +30,18 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, ContactMessages],
+  collections: [Users, Media],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-    db: postgresAdapter({
+  db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL,
     },
   }),
-    endpoints: [contactEndpoint],
+
   plugins: [
     r2Storage({
       bucket: cloudflare.env.R2 as any,
