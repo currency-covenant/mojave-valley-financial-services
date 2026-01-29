@@ -3,6 +3,7 @@ import path from 'path'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
+
 import { fileURLToPath } from 'url'
 import PgClient from 'pg-cloudflare';
 import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare';
@@ -38,6 +39,7 @@ export default buildConfig({
   collections: [Users, Media, ContactMessages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
+  cors: ['http://localhost:5173'],
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },

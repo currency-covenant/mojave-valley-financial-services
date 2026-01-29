@@ -1,13 +1,15 @@
+/// <reference types="vite/client" />
 export async function submitContact(data: {
   name: string;
   email: string;
   phone?: string;
   message: string;
 }) {
-  const response = await fetch('/api/contact', {
+  const base = 'http://localhost:3001';
+  const response = await fetch(`${base}/api/contact`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
+
     body: JSON.stringify(data),
   });
 

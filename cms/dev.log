@@ -1,0 +1,13 @@
+
+> mojave-valley-financial-services-cms@1.0.0 dev /home/lbsudo/code/business/clients/mojave-valley-financial/cms
+> cross-env NODE_OPTIONS=--no-deprecation next dev
+
+ ⚠ Port 3000 is in use by process 196478, using available port 3001 instead.
+   ▲ Next.js 15.4.11
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.1.98:3001
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 1807ms
+[?25h
