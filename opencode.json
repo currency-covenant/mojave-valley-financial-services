@@ -9,10 +9,11 @@
       "glob": true,
       "bash": true,
 
+      "repo_browser": true,
+
       "edit": false,
       "write": false,
       "patch": false,
-
       "lsp": false,
       "path": false,
       "skill": false,
