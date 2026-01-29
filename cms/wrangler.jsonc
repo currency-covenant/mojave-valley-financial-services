@@ -15,12 +15,22 @@
     "global_fetch_strictly_public",
   ],
   "vars": {
+    "NODE_ENV": "production",
+    "CLOUDFLARE_ENV": "production",
     "DATABASE_URL": "postgresql://neondb_owner:npg_4Wni6gtQEXxb@ep-orange-thunder-afcujsji-pooler.c-2.us-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+    "PAYLOAD_SECRET": "89e9191b18c5e4ffe2dbcabc1d2a31d7e18235da924b6b1c128f266282a742e",
   },
 
   "build": {
     "command": "pnpm install && pnpm run build",
     "cwd": ".",
+  },
+
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+    },
   },
   "assets": {
     "directory": ".open-next/assets",
