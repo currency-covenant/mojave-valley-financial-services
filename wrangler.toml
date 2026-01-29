@@ -4,4 +4,4 @@ main = "./server/dist/mojave-valley-financial-server.js"
 
 [build]
 command = "bun run build"
-cwd = "."
+cwd = ".."
