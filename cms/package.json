@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.16.1",
-
     "@payloadcms/db-postgres": "^3.73.0",
     "@payloadcms/next": "3.73.0",
     "@payloadcms/richtext-lexical": "3.73.0",

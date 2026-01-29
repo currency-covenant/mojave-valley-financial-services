@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
+  // cms/wrangler.jsonc
   "name": "mojave-valley-financial-services-cms",
   "compatibility_date": "2026-01-28",
 
@@ -22,14 +23,23 @@
   },
 
   "build": {
-        "command": "pnpm install --frozen-lockfile && pnpm run build",
+    "command": "pnpm install --frozen-lockfile && pnpm run build",
     "cwd": ".",
   },
 
   "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
       "invocation_logs": true,
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1,
     },
   },
   "assets": {
