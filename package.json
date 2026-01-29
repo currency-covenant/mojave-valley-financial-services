@@ -14,12 +14,13 @@
     "dev": "turbo dev",
     "dev:client": "turbo dev --filter=client",
     "dev:server": "turbo dev --filter=server",
-    "build": "turbo run build",
-    "build:shared": "npm --workspace shared run build",
-    "build:server": "npm --workspace server run build",
+    "build": "turbo build",
+    "build:client": "turbo build --filter=client",
+    "build:server": "turbo build --filter=server",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
-    "test": "turbo test"
+    "test": "turbo test",
+    "postinstall": "turbo build --filter=shared --filter=server"
   },
   "keywords": [
     "bun",
