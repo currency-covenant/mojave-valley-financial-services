@@ -1,0 +1,3 @@
+name = "mojave-valley-financial"
+compatibility_date = "2026-01-29"
+main = "./server/dist/mojave-valley-financial-server.js"
