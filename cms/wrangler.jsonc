@@ -21,7 +21,7 @@
   },
 
   "build": {
-    "command": "COREPACK_NPM_REGISTRY=https://registry.npmmirror.com pnpm install --frozen-lockfile && pnpm run build",
+    "command": "COREPACK_ENABLE_NETWORK=0 pnpm install --frozen-lockfile && pnpm run build",
     "cwd": ".",
   },
 
