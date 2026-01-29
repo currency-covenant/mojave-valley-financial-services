@@ -21,7 +21,7 @@
   },
 
   "build": {
-    "command": "COREPACK_ENABLE_NETWORK=0 pnpm install --frozen-lockfile && pnpm run build",
+    "command": "COREPACK_DISABLE=1 pnpm install --frozen-lockfile && pnpm run build",
     "cwd": ".",
   },
 
