@@ -4,7 +4,8 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare'
+import { Client as PgClient } from 'pg-cloudflare';
+import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare';
 import { GetPlatformProxyOptions } from 'wrangler'
 import { r2Storage } from '@payloadcms/storage-r2'
 
@@ -40,11 +41,13 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URL,
-    },
-  }),
+   db: postgresAdapter({
+     // @ts-ignore – pg-cloudflare client is compatible at runtime
+     client: PgClient,
+     pool: {
+       connectionString: process.env.DATABASE_URL,
+     },
+   }),
 
   plugins: [
     r2Storage({
