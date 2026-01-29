@@ -11,9 +11,6 @@ importers:
       '@opennextjs/cloudflare':
         specifier: ^1.16.1
         version: 1.16.1(next@15.4.11(@babel/core@7.28.6)(@playwright/test@1.56.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sass@1.77.4))(wrangler@4.46.0)
-      '@payloadcms/db-d1-sqlite':
-        specifier: 3.73.0
-        version: 3.73.0(@types/pg@8.10.2)(payload@3.73.0(graphql@16.12.0)(typescript@5.7.3))(pg@8.16.3)
       '@payloadcms/db-postgres':
         specifier: ^3.73.0
         version: 3.73.0(payload@3.73.0(graphql@16.12.0)(typescript@5.7.3))
@@ -1915,11 +1912,6 @@ packages:
     peerDependencies:
       next: ~15.0.8 || ~15.1.12 || ~15.2.9 || ~15.3.9 || ~15.4.11 || ~15.5.10 || ~16.0.11 || ^16.1.5
       wrangler: ^4.59.2
-
-  '@payloadcms/db-d1-sqlite@3.73.0':
-    resolution: {integrity: sha512-aQUqnEYsF4o+D1OVj4xMg5bsernhA6DzhnNqeQZF3qOE57Rb41uH2IrDhCoSGp9VWAw2O8SJa4LaVayrjwrPOw==}
-    peerDependencies:
-      payload: 3.73.0
 
   '@payloadcms/db-postgres@3.73.0':
     resolution: {integrity: sha512-XWCLR3kGWfWB5fLwSafS9oRemV5CAUhPp3rBqQhB+1pW3xbBO5BW00YmPkEb5voQ2G34iDMLZKi/O27jxe0Zbg==}
@@ -7998,48 +7990,6 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
       - encoding
-      - supports-color
-
-  '@payloadcms/db-d1-sqlite@3.73.0(@types/pg@8.10.2)(payload@3.73.0(graphql@16.12.0)(typescript@5.7.3))(pg@8.16.3)':
-    dependencies:
-      '@payloadcms/drizzle': 3.73.0(@types/pg@8.10.2)(payload@3.73.0(graphql@16.12.0)(typescript@5.7.3))(pg@8.16.3)
-      console-table-printer: 2.12.1
-      drizzle-kit: 0.31.7
-      drizzle-orm: 0.44.7(@types/pg@8.10.2)(pg@8.16.3)
-      payload: 3.73.0(graphql@16.12.0)(typescript@5.7.3)
-      prompts: 2.4.2
-      to-snake-case: 1.0.0
-      uuid: 9.0.0
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@libsql/client-wasm'
-      - '@neondatabase/serverless'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@prisma/client'
-      - '@tidbcloud/serverless'
-      - '@types/better-sqlite3'
-      - '@types/pg'
-      - '@types/sql.js'
-      - '@upstash/redis'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - better-sqlite3
-      - bun-types
-      - expo-sqlite
-      - gel
-      - knex
-      - kysely
-      - mysql2
-      - pg
-      - postgres
-      - prisma
-      - sql.js
-      - sqlite3
       - supports-color
 
   '@payloadcms/db-postgres@3.73.0(payload@3.73.0(graphql@16.12.0)(typescript@5.7.3))':
