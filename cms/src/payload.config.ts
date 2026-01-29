@@ -4,7 +4,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-import { Client as PgClient } from 'pg-cloudflare';
+import PgClient from 'pg-cloudflare';
 import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare';
 import { GetPlatformProxyOptions } from 'wrangler'
 import { r2Storage } from '@payloadcms/storage-r2'
