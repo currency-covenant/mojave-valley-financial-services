@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload';
+import type { CollectionConfig } from 'payload'
 
 export const ContactMessages: CollectionConfig = {
   slug: 'contactMessages',
@@ -22,4 +22,4 @@ export const ContactMessages: CollectionConfig = {
     update: () => false,
     delete: () => false,
   },
-};
+}

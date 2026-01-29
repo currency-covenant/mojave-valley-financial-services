@@ -10,14 +10,15 @@ import { r2Storage } from '@payloadcms/storage-r2'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { ContactMessages } from './collections/ContactMessages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 const realpath = (value: string) => (fs.existsSync(value) ? fs.realpathSync(value) : undefined)
 
 const isCLI = process.argv.some((value) => {
-  const resolved = realpath(value);
-  return typeof resolved === 'string' && resolved.endsWith(path.join('payload', 'bin.js'));
+  const resolved = realpath(value)
+  return typeof resolved === 'string' && resolved.endsWith(path.join('payload', 'bin.js'))
 })
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -33,7 +34,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, ContactMessages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
