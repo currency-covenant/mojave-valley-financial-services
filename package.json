@@ -14,9 +14,9 @@
     "dev": "turbo dev",
     "dev:client": "turbo dev --filter=client",
     "dev:server": "turbo dev --filter=server",
-    "build": "turbo build",
-    "build:client": "turbo build --filter=client",
-    "build:server": "turbo build --filter=server",
+    "build": "npm run build:shared && npm run build:server",
+    "build:shared": "npm --workspace shared run build",
+    "build:server": "npm --workspace server run build",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
     "test": "turbo test"

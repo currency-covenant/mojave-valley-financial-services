@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import type { ApiResponse } from "shared/dist";
+import type { ApiResponse } from "shared";
 import contactRoutes from "./contact";
 
 export const app = new Hono()
