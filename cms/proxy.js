@@ -16,3 +16,11 @@ export async function onRequest(context) {
     headers: resp.headers,
   });
 }
+
+// Default export for Cloudflare Workers (ES‑module format)
+export default {
+  async fetch(request, env, ctx) {
+    // Re‑use the onRequest handler
+    return onRequest({ request, env, ctx });
+  },
+};
