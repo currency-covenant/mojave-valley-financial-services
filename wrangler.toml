@@ -1,6 +1,7 @@
 name = "mojave-valley-financial"
 compatibility_date = "2026-01-29"
 main = "./server/dist/mojave-valley-financial-server.js"
+pages_build_output_dir = "dist"
 
 [build]
 command = "bun run build"
