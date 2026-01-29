@@ -16,7 +16,7 @@
     "global_fetch_strictly_public",
   ],
   "vars": {
-    "PAYLOAD_SERVICE_URL": "https://payload-neon.example.com",
+    "PAYLOAD_SERVICE_URL": "https://cms.mojavevalleyfinancial.com",
     "PAYLOAD_SECRET": "89e9191b18c5e4ffe2dbcabc1d2a31d7e18235da924b6b1c128f266282a742e",
   },
 
