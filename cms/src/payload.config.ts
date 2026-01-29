@@ -13,6 +13,7 @@ import { Media } from './collections/Media'
 import { ContactMessages } from './collections/ContactMessages'
 import { contactEndpoint } from './payload/endpoints/contactEndpoint'
 
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 const realpath = (value: string) => (fs.existsSync(value) ? fs.realpathSync(value) : undefined)
@@ -20,10 +21,17 @@ const realpath = (value: string) => (fs.existsSync(value) ? fs.realpathSync(valu
 const isCLI = process.argv.some((value) => realpath(value).endsWith(path.join('payload', 'bin.js')))
 const isProduction = process.env.NODE_ENV === 'production'
 
-const cloudflare =
-  isCLI || !isProduction
-    ? await getCloudflareContextFromWrangler()
-    : await getCloudflareContext({ async: true })
+let cloudflare: CloudflareContext
+try {
+  cloudflare =
+    isCLI || !isProduction
+      ? await getCloudflareContextFromWrangler()
+      : await getCloudflareContext({ async: true })
+} catch (e) {
+  console.error('⚠️ Cloudflare context init failed:', e)
+  // Provide a minimal stub so the rest of the config can load
+  cloudflare = { env: {} } as any
+}
 
 export default buildConfig({
   admin: {
@@ -43,7 +51,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL,
     },
   }),
-   endpoints: [contactEndpoint],
+    endpoints: [contactEndpoint],
   plugins: [
     r2Storage({
       bucket: cloudflare.env.R2 as any,
