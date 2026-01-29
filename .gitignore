@@ -38,5 +38,4 @@ pnpm-debug.log*
 *.sw?
 
 cms/worker-configuration.d.ts
-bun.lockb
 .turbo
