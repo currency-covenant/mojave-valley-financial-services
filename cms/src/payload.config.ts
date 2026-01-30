@@ -52,7 +52,7 @@ const config = buildConfig({
       ssl: { rejectUnauthorized: false },
       keepAlive: true,
       max: 5,
-      idleTimeoutMillis: 300_000, // 5 min aligns with Neon idle timeout
+      idleTimeoutMillis: 900_000, // 15 min to avoid Neon idle timeout
     },
   }),
 
