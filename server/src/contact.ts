@@ -33,11 +33,15 @@ app.post("/payload/form", async (c: any) => {
       return c.json({ error: "PAYLOAD_URL not configured" }, 500 as any);
     }
 
-    const res = await fetch(`${payloadBase}/api/contact-messages`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    // Forward to the correct CMS endpoint – the CMS defines a custom route at
+    // `/api/contact` (see src/app/(payload)/api/contact/route.ts). The previous
+    // path (`/api/contact-messages`) does not exist, which caused the 404.
+const res = await fetch(`${payloadBase}/api/contact`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload),
+});
+
 
     // Log upstream response status and a few headers for debugging
     console.log('🔄 Forwarded to CMS – status:', res.status);
