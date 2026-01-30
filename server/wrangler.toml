@@ -1,0 +1,18 @@
+# -------------------------------------------------
+# Cloudflare Workers configuration (inside server/)
+# -------------------------------------------------
+name = "mojave-valley-financial-services-server"
+compatibility_date = "2024-10-01"          # keep this up-to-date
+main = "./dist/index.js"                  # compiled entry point
+
+# -------------------------------------------------
+# Workers.dev fallback (useful while we don’t have
+# account_id / zone_id yet)
+# -------------------------------------------------
+workers_dev = true                        # gives you <name>.workers.dev
+
+# -------------------------------------------------
+# Runtime environment variables (non‑secret)
+# -------------------------------------------------
+[vars]
+PAYLOAD_URL = "https://cms.mojavevalleyfinancial.com"
