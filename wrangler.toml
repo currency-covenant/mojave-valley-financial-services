@@ -1,14 +1,7 @@
 # Cloudflare Pages configuration for the @client/ app
-
 name = "mojave-client-pages"
 compatibility_date = "2024-09-20"
 
-# -------------------------------------------------
-# Build settings – use Bun via turbo for monorepo
-# -------------------------------------------------
-[build]
-# Install deps and build the client package (including server/shared)
-command = "bun run build:client"
 # The directory that contains the final static assets for Pages
 pages_build_output_dir = "./client/dist"
 
