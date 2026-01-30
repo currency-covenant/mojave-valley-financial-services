@@ -5,7 +5,9 @@ import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<'home' | 'about' | 'services'>('home');
+  const [activeSection, setActiveSection] = useState<
+    "home" | "about" | "services"
+  >("home");
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -16,17 +18,19 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>("#home, #about, #services");
+    const sections = document.querySelectorAll<HTMLElement>(
+      "#home, #about, #services",
+    );
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.id as 'home' | 'about' | 'services';
+            const id = entry.target.id as "home" | "about" | "services";
             setActiveSection(id);
           }
         });
       },
-      { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -47,22 +51,28 @@ export const Navbar = () => {
         <div className="hidden lg:flex lg:w-1/3 lg:justify-start lg:gap-8">
           <Button
             variant="blank"
-            className={activeSection === 'home' ? 'border-b-2 border-[#FCB100]' : ''}
-            onClick={() => scrollToSection('home')}
+            className={
+              activeSection === "home" ? "border-b-2 border-[#FCB100]" : ""
+            }
+            onClick={() => scrollToSection("home")}
           >
             Home
           </Button>
           <Button
             variant="blank"
-            className={activeSection === 'about' ? 'border-b-2 border-[#FCB100]' : ''}
-            onClick={() => scrollToSection('about-cards')}
+            className={
+              activeSection === "about" ? "border-b-2 border-[#FCB100]" : ""
+            }
+            onClick={() => scrollToSection("about-cards")}
           >
             About
           </Button>
           <Button
             variant="blank"
-            className={activeSection === 'services' ? 'border-b-2 border-[#FCB100]' : ''}
-            onClick={() => scrollToSection('services-title')}
+            className={
+              activeSection === "services" ? "border-b-2 border-[#FCB100]" : ""
+            }
+            onClick={() => scrollToSection("services-title")}
           >
             Services
           </Button>
@@ -70,8 +80,19 @@ export const Navbar = () => {
 
         {/* Desktop CTAs – hidden on mobile */}
         <div className="hidden lg:flex lg:w-1/3 lg:justify-end lg:gap-8">
-          <p className="cursor-pointer">Client Portal</p>
-          <p className="cursor-pointer">Contact</p>
+          <a
+            target="_blank"
+            href="https://mojavevalleyfinancialcom.clientportal.com"
+            className="cursor-pointer"
+          >
+            Client Portal
+          </a>
+          <Button
+            onClick={() => scrollToSection("about-cards")}
+            className="cursor-pointer"
+          >
+            Contact
+          </Button>
         </div>
 
         {/* Mobile hamburger – visible only on small screens */}
@@ -105,27 +126,27 @@ export const Navbar = () => {
         `}
       >
         <div className="flex flex-col p-4 space-y-2">
-            <Button
-              variant="blank"
-              className={`w-full text-left ${activeSection === 'home' ? 'border-b-2 border-[#FCB100]' : ''}`}
-              onClick={() => scrollToSection('home')}
-            >
-              Home
-            </Button>
-            <Button
-              variant="blank"
-              className={`w-full text-left ${activeSection === 'about' ? 'border-b-2 border-[#FCB100]' : ''}`}
-              onClick={() => scrollToSection('about-cards')}
-            >
-              About
-            </Button>
-            <Button
-              variant="blank"
-              className={`w-full text-left ${activeSection === 'services' ? 'border-b-2 border-[#FCB100]' : ''}`}
-              onClick={() => scrollToSection('services')}
-            >
-              Services
-            </Button>
+          <Button
+            variant="blank"
+            className={`w-full text-left ${activeSection === "home" ? "border-b-2 border-[#FCB100]" : ""}`}
+            onClick={() => scrollToSection("home")}
+          >
+            Home
+          </Button>
+          <Button
+            variant="blank"
+            className={`w-full text-left ${activeSection === "about" ? "border-b-2 border-[#FCB100]" : ""}`}
+            onClick={() => scrollToSection("about-cards")}
+          >
+            About
+          </Button>
+          <Button
+            variant="blank"
+            className={`w-full text-left ${activeSection === "services" ? "border-b-2 border-[#FCB100]" : ""}`}
+            onClick={() => scrollToSection("services")}
+          >
+            Services
+          </Button>
           <p className="cursor-pointer py-1" onClick={() => setIsOpen(false)}>
             Client Portal
           </p>

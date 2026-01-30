@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Origins that are allowed to call the API. Add more URLs here if you ever need them.
-const ALLOWED_ORIGINS = ['http://localhost:5173'];
+const ALLOWED_ORIGINS = ['http://localhost:5173', 'https://cms.mojavevalleyfinancial.com'];
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
@@ -18,7 +18,7 @@ export function middleware(request: NextRequest) {
       'Content-Type, Authorization, X-Requested-With',
     );
     // Change to true if you ever need to send cookies / auth headers.
-    response.headers.set('Access-Control-Allow-Credentials', 'false');
+    response.headers.set('Access-Control-Allow-Credentials', 'true');
   }
 
   // Pre‑flight request – answer immediately with a 204 and the CORS headers.
