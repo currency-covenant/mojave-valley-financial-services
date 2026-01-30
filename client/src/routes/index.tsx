@@ -4,6 +4,9 @@ import About from "@/components/home/About";
 import { createFileRoute } from "@tanstack/react-router";
 import Services from "@/components/home/Services";
 import ContactForm from "@/components/home/Contact";
+import CTA from "@/components/home/CTA";
+import Footer from "@/components/home/Footer";
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
@@ -27,7 +30,8 @@ function Index() {
       <About />
       <Services />
       <ContactForm />
-      <p>hello</p>
+      <CTA />
+      <Footer />
     </>
   );
 }

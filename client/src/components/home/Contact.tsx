@@ -42,16 +42,16 @@ export default function ContactForm() {
   return (
     <>
       <div className="flex flex-col lg:flex-row justify-center items-start h-full">
-        <iframe
-          src="https://calendly.com/alvin-brown-mojavevalleyfinancial/30min"
-          className="w-full lg:w-1/2"
-          style={{
-            minWidth: "320px",
-            height: "885px",
-            border: "0",
-          }}
-          title="Calendly Booking"
-        ></iframe>
+        {/* <iframe */}
+        {/*   src="https://calendly.com/alvin-brown-mojavevalleyfinancial/30min" */}
+        {/*   className="w-full lg:w-1/2" */}
+        {/*   style={{ */}
+        {/*     minWidth: "320px", */}
+        {/*     height: "885px", */}
+        {/*     border: "0", */}
+        {/*   }} */}
+        {/*   title="Calendly Booking" */}
+        {/* ></iframe> */}
 
         <form
           onSubmit={handleSubmit}
@@ -145,6 +145,17 @@ export default function ContactForm() {
             {isSubmitting ? "Sending…" : "Send Message"}
           </button>
         </form>
+        <iframe
+          src="https://calendly.com/alvin-brown-mojavevalleyfinancial/30min"
+          className="w-full lg:w-1/2 h-full "
+          style={{
+            minWidth: "320px",
+            minHeight: "1000px",
+            height: "1000px",
+            border: "0",
+          }}
+          title="Calendly Booking"
+        ></iframe>
       </div>
     </>
   );
