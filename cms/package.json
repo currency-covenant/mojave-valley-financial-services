@@ -24,7 +24,7 @@
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test",
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
-    "postbuild": "mkdir -p public/admin && cp src/app/(payload)/admin/importMap.js public/admin/importMap.js || true"
+    "postbuild": "mkdir -p public/admin && cp \"src/app/(payload)/admin/importMap.js\" public/admin/importMap.js || true"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.16.1",
