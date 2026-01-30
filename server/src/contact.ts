@@ -9,14 +9,11 @@ const app = new Hono();
 // ------------------------------------------------------------------
 // CORS – allow the client to call the endpoint (adjust origin if needed)
 // ------------------------------------------------------------------
-app.use(
-  "*",
-  cors({
-    origin: "*", // you can restrict this to your client origin, e.g. 'http://localhost:5174'
-    allowMethods: ["POST"],
-    allowHeaders: ["Content-Type"],
-  }),
-);
+app.options("*", cors({
+  origin: "*",
+  allowMethods: ["POST"],
+  allowHeaders: ["Content-Type"],
+}));
 
 // ------------------------------------------------------------------
 // Logger – helpful during development
@@ -42,8 +39,26 @@ app.post("/payload/form", async (c: any) => {
       body: JSON.stringify(payload),
     });
 
-    const data = await res.json();
+    // Log upstream response status and a few headers for debugging
+    console.log('🔄 Forwarded to CMS – status:', res.status);
+    console.log('🔄 CMS response headers:', {
+      "content-type": res.headers.get("content-type"),
+      "content-length": res.headers.get("content-length"),
+    });
+
+    // Safely parse JSON – the CMS might return non‑JSON on error
+    let data: any;
+    try {
+      data = await res.json();
+    } catch (parseErr) {
+      const text = await res.text();
+      console.error('⚠️ Failed to parse CMS response as JSON:', parseErr);
+      console.error('⚠️ Raw response body:', text);
+      return c.json({ error: 'Invalid response from CMS' }, 502 as any);
+    }
+
     if (!res.ok) {
+      // Forward the CMS error payload (or a generic message) with the same status code
       return c.json(data, res.status as any);
     }
     return c.json(data, 200 as any);
