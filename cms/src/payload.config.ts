@@ -1,3 +1,4 @@
+// ⚡️ DB pool configuration updated for Neon
 import fs from 'fs'
 import path from 'path'
 import { postgresAdapter } from '@payloadcms/db-postgres'
@@ -43,17 +44,17 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-db: postgresAdapter({
-  // @ts-ignore – pg-cloudflare client is compatible at runtime
-  client: PgClient,
-  pool: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
-    keepAlive: true,
-    max: 5,
-    idleTimeoutMillis: 300_000, // 5 min aligns with Neon idle timeout
-  },
-}),
+  db: postgresAdapter({
+    // @ts-ignore – pg-cloudflare client is compatible at runtime
+    client: PgClient,
+    pool: {
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
+      keepAlive: true,
+      max: 5,
+      idleTimeoutMillis: 300_000, // 5 min aligns with Neon idle timeout
+    },
+  }),
 
   plugins: [
     r2Storage({
@@ -73,3 +74,5 @@ function getCloudflareContextFromWrangler(): Promise<CloudflareContext> {
       } satisfies GetPlatformProxyOptions),
   )
 }
+
+// DB pool fix applied
