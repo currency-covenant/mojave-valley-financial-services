@@ -28,7 +28,7 @@ app.use("*", logger());
 app.post("/payload/form", async (c: any) => {
   try {
     const payload = await c.req.json();
-    const payloadBase = process.env.PAYLOAD_URL;
+    const payloadBase = c.env.PAYLOAD_URL;
     if (!payloadBase) {
       return c.json({ error: "PAYLOAD_URL not configured" }, 500 as any);
     }
