@@ -1,0 +1,23 @@
+# Cloudflare Pages configuration for the @client/ app
+
+name = "mojave-client-pages"
+compatibility_date = "2024-09-20"
+
+# -------------------------------------------------
+# Build settings – use Bun instead of npm
+# -------------------------------------------------
+[build]
+# Install deps with Bun and then run the Vite build (tsc + vite)
+command = "bun install && bun run build"
+# Run the command from the folder that contains the package.json
+cwd = "./client"
+# The folder Vite writes the production assets to (you confirmed it’s ./client/dist)
+upload.dir = "./client/dist"
+
+# -------------------------------------------------
+# Production environment variables – injected at build time
+# -------------------------------------------------
+[vars]
+VITE_SERVER_URL = "https://api.mojavevalleyfinancial.com"
+VITE_PAYLOAD_URL = "https://cms.mojavevalleyfinancial.com"
+VITE_CMS_URL = "https://cms.mojavevalleyfinancial.com"
