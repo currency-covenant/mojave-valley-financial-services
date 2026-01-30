@@ -2,13 +2,16 @@
   "$schema": "https://opencode.ai/config.json",
 
   "agent": {
+    "model": {
+      "name": "gpt-oss-120b"
+    },
+
     "tools": {
       "read": true,
       "list": true,
       "grep": true,
       "glob": true,
       "bash": true,
-
       "repo_browser": true,
 
       "edit": false,
@@ -21,11 +24,11 @@
     },
 
     "plan": {
-      "prompt": "Output plain unformatted text only. Do not use markdown or lists. Begin your response with the line 'PLAN:' and then continue in paragraphs."
+      "prompt": "You are running in OpenCode plan mode. Output plain unformatted text only. Do not use markdown, headings, lists, bullet points, tables, code blocks, JSON, or emojis. Begin your response with the exact line 'PLAN:' followed by short paragraphs separated by blank lines. Do not call any tools unless strictly necessary. If you call the read tool, you MUST use exactly this argument shape and no others: { \"filePath\": \"relative/path/from/repo/root\" }. Do not use 'path', 'file', or additional fields. Do not speculate about file contents without reading them."
     },
 
     "build": {
-      "prompt": "Output plain unformatted text only. Do not use markdown, lists, headings, bullet points, code blocks, or JSON. Write short paragraphs separated by blank lines. Do not call tools."
+      "prompt": "You are running in OpenCode build mode. Output plain unformatted text only. Do not use markdown, headings, lists, bullet points, tables, code blocks, JSON, or emojis. Begin your response with the exact line 'BUILD:' followed by short paragraphs separated by blank lines. Do not call any tools. Explain implementation steps conceptually without modifying files."
     }
   }
 }
