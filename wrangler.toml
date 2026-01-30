@@ -3,7 +3,7 @@ name = "mojave-client-pages"
 compatibility_date = "2024-09-20"
 
 # The directory that contains the final static assets for Pages
-pages_build_output_dir = "./client/dist"
+pages_build_output_dir = "client/dist"
 
 # -------------------------------------------------
 # Production environment variables – injected at build time
