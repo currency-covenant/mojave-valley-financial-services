@@ -21,11 +21,11 @@
     },
 
     "plan": {
-      "prompt": "Analyze code and propose changes in plain text. Do not attempt edits or tool calls outside the enabled list."
+      "prompt": "Output plain unformatted text only. Do not use markdown or lists. Begin your response with the line 'PLAN:' and then continue in paragraphs."
     },
 
     "build": {
-      "prompt": "Explain how to implement the changes manually. Do not attempt to modify files or call edit or git tools."
+      "prompt": "Output plain unformatted text only. Do not use markdown, lists, headings, bullet points, code blocks, or JSON. Write short paragraphs separated by blank lines. Do not call tools."
     }
   }
 }

@@ -14,9 +14,9 @@
       "@server/*": ["./server/src/*"],
       "@client/*": ["./client/src/*"],
       "@shared/*": ["./shared/src/*"],
-    "@hooks/*": ["./client/src/hooks/*"]
+      "@hooks/*": ["./client/src/hooks/*"],
+      "@cms/*": ["./cms/src/*"]
     },
-
     // Module resolution
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,

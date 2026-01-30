@@ -6,6 +6,7 @@ export async function submitContact(data: {
   message: string;
 }) {
   const base = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:3001';
+  console.log('⚙️ API base from env:', base);
   const response = await fetch(`${base}/payload/form`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
