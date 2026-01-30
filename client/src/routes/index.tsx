@@ -27,6 +27,7 @@ function Index() {
       <About />
       <Services />
       <ContactForm />
+      <p>hello</p>
     </>
   );
 }
