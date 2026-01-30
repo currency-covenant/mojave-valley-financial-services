@@ -30,7 +30,7 @@ const cloudflare =
     ? await getCloudflareContextFromWrangler()
     : await getCloudflareContext({ async: true })
 
-export default buildConfig({
+const config = buildConfig({
   admin: {
     user: Users.slug,
     importMap: {
@@ -63,6 +63,11 @@ export default buildConfig({
     }),
   ],
 })
+
+// Prevent tree‑shaking by attaching to globalThis
+;(globalThis as any).__payloadConfig = config
+
+export default config
 
 // Adapted from https://github.com/opennextjs/opennextjs-cloudflare/blob/d00b3a13e42e65aad76fba41774815726422cc39/packages/cloudflare/src/api/cloudflare-context.ts#L328C36-L328C46
 function getCloudflareContextFromWrangler(): Promise<CloudflareContext> {
