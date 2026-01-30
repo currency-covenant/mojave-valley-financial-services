@@ -5,8 +5,8 @@ export async function submitContact(data: {
   phone?: string;
   message: string;
 }) {
-  const base = 'http://localhost:3001';
-  const response = await fetch(`${base}/api/contact`, {
+  const base = process.env.NEXT_PUBLIC_API_BASE ?? 'http://localhost:3001';
+  const response = await fetch(`${base}/payload/form`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
 
