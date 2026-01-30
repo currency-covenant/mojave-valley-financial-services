@@ -44,6 +44,6 @@
   },
   "packageManager": "bun@1.1.30",
   "engines": {
-    "pnpm": "^8.15.1"
+    "bun": ">=1.1.0"
   }
 }

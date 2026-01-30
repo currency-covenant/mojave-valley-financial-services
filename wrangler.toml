@@ -4,5 +4,5 @@ main = "./server/dist/mojave-valley-financial-server.js"
 pages_build_output_dir = "dist"
 
 [build]
-command = "bun run build"
-cwd = ".."
+command = "bun install && bun run build"
+cwd = "."
