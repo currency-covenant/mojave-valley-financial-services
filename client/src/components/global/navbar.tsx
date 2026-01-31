@@ -56,27 +56,42 @@ export const Navbar = () => {
         <div className="hidden lg:flex lg:w-1/3 lg:justify-start lg:gap-8">
           <Button
             variant="blank"
-            className={
-              activeSection === "home" ? "border-b-2 border-[#FCB100]" : ""
-            }
+            className={`
+      relative
+      decoration-transparent
+      decoration-2
+      underline-offset-4
+      hover:decoration-[#FCB100]
+      transition-colors duration-200
+      ${activeSection === "home" ? "decoration-[#FCB100]" : ""}
+    `}
             onClick={() => scrollToSection("home")}
           >
             Home
           </Button>
           <Button
             variant="blank"
-            className={
-              activeSection === "about" ? "border-b-2 border-[#FCB100]" : ""
-            }
+            className={`
+      relative
+      decoration-transparent
+      decoration-2
+      underline-offset-4
+      hover:decoration-[#FCB100]
+      transition-colors duration-200
+      ${activeSection === "about" ? "decoration-[#FCB100]" : ""}
+    `}
             onClick={() => scrollToSection("about-cards")}
           >
             About
           </Button>
           <Button
             variant="blank"
-            className={
-              activeSection === "services" ? "border-b-2 border-[#FCB100]" : ""
-            }
+            className={`
+      relative
+      "hover:underline hover:underline-[#FCB100
+      transition-colors duration-200
+      ${activeSection === "services" ? "decoration-[#FCB100] underline-offset-2" : ""}
+    `}
             onClick={() => scrollToSection("services-title")}
           >
             Services
@@ -86,6 +101,7 @@ export const Navbar = () => {
         {/* Desktop CTAs – hidden on mobile */}
         <div className="hidden lg:flex flex-row justify-center items-center lg:w-1/3 lg:justify-end lg:gap-8">
           <Button
+            className={"hover:underline hover:underline-[#FCB100]"}
             variant="blank"
             onClick={() =>
               window.open(
@@ -135,31 +151,68 @@ export const Navbar = () => {
         <div className="flex flex-col p-4 space-y-2">
           <Button
             variant="blank"
-            className={`w-full text-left ${activeSection === "home" ? "border-b-2 border-[#FCB100]" : ""}`}
+            className={`
+      w-full text-left
+      relative
+      decoration-transparent
+      decoration-2
+      underline-offset-4
+      hover:decoration-[#FCB100]
+      transition-colors duration-200
+      ${activeSection === "home" ? "decoration-[#FCB100]" : ""}
+    `}
             onClick={() => scrollToSection("home")}
           >
             Home
           </Button>
           <Button
             variant="blank"
-            className={`w-full text-left ${activeSection === "about" ? "border-b-2 border-[#FCB100]" : ""}`}
+            className={`
+      w-full text-left
+      relative
+      decoration-transparent
+      decoration-2
+      underline-offset-4
+      hover:decoration-[#FCB100]
+      transition-colors duration-200
+      ${activeSection === "about" ? "decoration-[#FCB100]" : ""}
+    `}
             onClick={() => scrollToSection("about-cards")}
           >
             About
           </Button>
           <Button
             variant="blank"
-            className={`w-full text-left ${activeSection === "services" ? "border-b-2 border-[#FCB100]" : ""}`}
+            className={`
+      w-full text-left
+      relative
+      decoration-transparent
+      decoration-2
+      underline-offset-4
+      hover:decoration-[#FCB100]
+      transition-colors duration-200
+      ${activeSection === "services" ? "decoration-[#FCB100]" : ""}
+    `}
             onClick={() => scrollToSection("services")}
           >
             Services
           </Button>
-          <p
-            className="cursor-pointer py-1"
+          <Button
+            variant="blank"
+            className={`
+      w-full text-left
+      relative
+      decoration-transparent
+      decoration-2
+      underline-offset-4
+      hover:decoration-[#FCB100]
+      transition-colors duration-200
+      ${activeSection === "contact" ? "decoration-[#FCB100]" : ""}
+    `}
             onClick={() => scrollToSection("contact")}
           >
             Contact
-          </p>
+          </Button>
         </div>
       </div>
     </nav>
