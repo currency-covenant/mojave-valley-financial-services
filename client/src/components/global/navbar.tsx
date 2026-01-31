@@ -6,26 +6,31 @@ import { Menu, X } from "lucide-react";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<
-    "home" | "about" | "services"
+    "home" | "about" | "services" | "contact"
   >("home");
 
   const scrollToSection = (id: string) => {
+    console.log("scrollToSection:", id);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>(
-      "#home, #about, #services",
+      "#home, #about, #services, #contact",
     );
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.id as "home" | "about" | "services";
+            const id = entry.target.id as
+              | "home"
+              | "about"
+              | "services"
+              | "contact";
             setActiveSection(id);
           }
         });
@@ -79,18 +84,20 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop CTAs – hidden on mobile */}
-        <div className="hidden lg:flex lg:w-1/3 lg:justify-end lg:gap-8">
-          <a
-            target="_blank"
-            href="https://mojavevalleyfinancialcom.clientportal.com"
-            className="cursor-pointer"
+        <div className="hidden lg:flex flex-row justify-center items-center lg:w-1/3 lg:justify-end lg:gap-8">
+          <Button
+            variant="blank"
+            onClick={() =>
+              window.open(
+                "https://mojavevalleyfinancialcom.clientportal.com",
+                "_blank",
+                "noopener,noreferrer",
+              )
+            }
           >
             Client Portal
-          </a>
-          <Button
-            onClick={() => scrollToSection("about-cards")}
-            className="cursor-pointer"
-          >
+          </Button>
+          <Button variant="blank" onClick={() => scrollToSection("contact")}>
             Contact
           </Button>
         </div>
@@ -147,10 +154,10 @@ export const Navbar = () => {
           >
             Services
           </Button>
-          <p className="cursor-pointer py-1" onClick={() => setIsOpen(false)}>
-            Client Portal
-          </p>
-          <p className="cursor-pointer py-1" onClick={() => setIsOpen(false)}>
+          <p
+            className="cursor-pointer py-1"
+            onClick={() => scrollToSection("contact")}
+          >
             Contact
           </p>
         </div>

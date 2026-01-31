@@ -27,7 +27,7 @@ export default function ContactForm() {
       await submitContact(formData);
       toast.success("Your message has been sent!");
       setFormData({ name: "", email: "", phone: "", message: "" });
-    } catch (err: any) {
+      } catch (err: unknown) {
       console.error(err);
       const msg =
         err instanceof Error
@@ -41,7 +41,10 @@ export default function ContactForm() {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-center items-start h-full">
+        <div
+          id="contact"
+          className="flex flex-col lg:flex-row justify-center items-start h-full pt-10 scroll-mt-20"
+        >
         {/* <iframe */}
         {/*   src="https://calendly.com/alvin-brown-mojavevalleyfinancial/30min" */}
         {/*   className="w-full lg:w-1/2" */}
