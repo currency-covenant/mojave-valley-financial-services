@@ -58,10 +58,6 @@ export const Navbar = () => {
             variant="blank"
             className={`
       relative
-      decoration-transparent
-      decoration-2
-      underline-offset-4
-      hover:decoration-[#FCB100]
       transition-colors duration-200
       ${activeSection === "home" ? "decoration-[#FCB100]" : ""}
     `}
@@ -73,10 +69,6 @@ export const Navbar = () => {
             variant="blank"
             className={`
       relative
-      decoration-transparent
-      decoration-2
-      underline-offset-4
-      hover:decoration-[#FCB100]
       transition-colors duration-200
       ${activeSection === "about" ? "decoration-[#FCB100]" : ""}
     `}
@@ -90,7 +82,7 @@ export const Navbar = () => {
       relative
       "hover:underline hover:underline-[#FCB100
       transition-colors duration-200
-      ${activeSection === "services" ? "decoration-[#FCB100] underline-offset-2" : ""}
+      ${activeSection === "services" ? "underline-[#FCB100] underline-offset-2" : ""}
     `}
             onClick={() => scrollToSection("services-title")}
           >

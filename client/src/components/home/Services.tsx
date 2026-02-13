@@ -25,7 +25,7 @@ const services = [
   {
     src: resolution,
     alt: "Tax Resolution",
-    title: "Amendents",
+    title: "Amendments",
     description:
       "Need to fix a past return? We handle tax-amendments with ease.",
   },
@@ -98,7 +98,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 export default function Services() {
   return (
     <>
-      <section id="services" className="bg-neutral-900 pb-24 font-dmSerifDisplay flex flex-col justify-center items-center">
+      <section
+        id="services"
+        className="bg-neutral-900 pb-24 font-dmSerifDisplay flex flex-col justify-center items-center"
+      >
         {/* Row 1 – indices 0‑2 */}
         <motion.h1
           id="services-title"
@@ -120,7 +123,11 @@ export default function Services() {
           style={{ willChange: "transform, opacity" }}
         >
           {services.slice(0, 3).map((svc, idx) => (
-            <motion.div key={idx} variants={cardItem} style={{ willChange: "transform, opacity" }}>
+            <motion.div
+              key={idx}
+              variants={cardItem}
+              style={{ willChange: "transform, opacity" }}
+            >
               <ServiceCard
                 src={svc.src}
                 alt={svc.alt}
@@ -140,7 +147,11 @@ export default function Services() {
           style={{ willChange: "transform, opacity" }}
         >
           {services.slice(3, 5).map((svc, idx) => (
-            <motion.div key={idx + 3} variants={cardItem} style={{ willChange: "transform, opacity" }}>
+            <motion.div
+              key={idx + 3}
+              variants={cardItem}
+              style={{ willChange: "transform, opacity" }}
+            >
               <ServiceCard
                 src={svc.src}
                 alt={svc.alt}
@@ -154,7 +165,3 @@ export default function Services() {
     </>
   );
 }
-
-
-
-
