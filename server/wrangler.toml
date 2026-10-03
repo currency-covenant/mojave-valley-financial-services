@@ -6,10 +6,20 @@ compatibility_date = "2024-10-01"                # keep this up-to-date
 main = "./dist/index.js"                         # compiled entry point
 
 # -------------------------------------------------
-# Workers.dev fallback (useful while we don’t have
-# account_id / zone_id yet)
+# Workers.dev fallback (kept available for debugging even
+# though a custom domain is now attached)
 # -------------------------------------------------
 workers_dev = true # gives you <name>.workers.dev
+
+# -------------------------------------------------
+# Custom domain – Cloudflare creates the DNS record and the
+# certificate for us on deploy. Requires an active zone.
+# Do NOT create a CNAME for this hostname by hand.
+# -------------------------------------------------
+[[routes]]
+pattern = "api.mojavevalleyfinancial.com"
+custom_domain = true
+
 [observability]
 enabled = false
 head_sampling_rate = 1
@@ -24,8 +34,7 @@ invocation_logs = true
 enabled = true
 persist = true
 head_sampling_rate = 1
-# -------------------------------------------------
-# Runtime environment variables (non‑secret)
-# -------------------------------------------------
-[vars]
-PAYLOAD_URL = "https://cms.mojavevalleyfinancial.com"
+
+# No runtime environment variables are required right now. If the
+# contact endpoint gains a real backend, add its configuration here,
+# using `wrangler secret put <NAME>` for anything sensitive.

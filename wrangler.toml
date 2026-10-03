@@ -5,11 +5,15 @@ compatibility_date = "2024-09-20"
 # The directory that contains the final static assets for Pages
 pages_build_output_dir = "client/dist"
 
-
 # -------------------------------------------------
-# Production environment variables – injected at build time
-# -------------------------------------------------
-[vars]
-VITE_SERVER_URL = "https://api.mojavevalleyfinancial.com"
-VITE_PAYLOAD_URL = "https://cms.mojavevalleyfinancial.com"
-PAYLOAD_URL = "https://cms.mojavevalleyfinancial.com"
+# NOTE: build-time variables are NOT configured here.
+#
+# `[vars]` is applied when Wrangler publishes the Worker, which is
+# *after* Vite has already produced client/dist. Anything the client
+# bundle reads must instead be set as a Pages build variable in the
+# dashboard under Settings > Environment variables, for BOTH the
+# Production and Preview environments:
+#
+#   VITE_SERVER_URL = https://api.mojavevalleyfinancial.com
+#
+# Changing that variable requires a new Pages build to take effect.
