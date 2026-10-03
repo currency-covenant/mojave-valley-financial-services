@@ -5,11 +5,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/**/*.js",
-        "src/**/*.jsx",
-        "src/**/*.json",
+        "src/**/*",
         "tsconfig.json",
         "tsconfig.*.json",
         "vite.config.ts",
@@ -55,9 +51,7 @@
     "type-check": {
       "dependsOn": ["^build"],
       "inputs": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/**/*.d.ts",
+        "src/**/*",
         "tsconfig.json",
         "tsconfig.*.json",
         "package.json"

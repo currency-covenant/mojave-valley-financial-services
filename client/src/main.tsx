@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./components/ui/sonner";
-import "../src/styles/global.css";
+import "./styles/global.css";
 const queryClient = new QueryClient();
 
 // Import the generated route tree
